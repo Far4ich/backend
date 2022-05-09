@@ -21,6 +21,19 @@
             _сolumns = new List<Column>();
         }
 
+        public string GetName()
+        {
+            return _name;   
+        }
+        public Column GetColumn(int id)
+        {
+            return _сolumns[id];
+        }
+        public List<Column> GetColumns()
+        {
+            return _сolumns;
+        }
+
         public void AddColumn(string name)
         {
             Column column = new Column(name);
@@ -92,12 +105,20 @@
 
         public void DeleteTask(string titleTask)
         {
+            bool taskFound = false;
             foreach (Column column in _сolumns)
             {
-                if(column.RemoveTask(titleTask) != null)
+                try
                 {
+                    column.RemoveTask(titleTask);
+                    taskFound = true;
                     break;
                 }
+                catch{}
+            }
+            if (!taskFound)
+            {
+                throw new Exception("Task is not found");
             }
         }
 

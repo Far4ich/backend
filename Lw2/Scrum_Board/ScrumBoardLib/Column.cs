@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ScrumBoard
+﻿namespace ScrumBoard
 {
-    internal class Column
+    public class Column
     {
         private string name;
         private readonly List<Task> _tasks;
@@ -15,10 +10,6 @@ namespace ScrumBoard
             _tasks = new List<Task>();
         }
 
-        public void Rename(string name)
-        {
-            this.name = name;
-        }
         public string GetName()
         {
             return name;
